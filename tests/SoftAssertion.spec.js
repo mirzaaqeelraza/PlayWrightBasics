@@ -6,21 +6,28 @@ test('SoftAssertions', async({page})=>{
     await page.goto("https://demoblaze.com/")
 
 
-   /*Hard Assertions:-
+    //Hard Assertions:-
+  
+    /*
     await expect(page).toHaveTitle('STORE');
 
     await expect(page).toHaveURL('https://demoblaze.com/');
 
-    await expect(page.locator('.navbar-brand')).toBeVisible(); */
+    await expect(page.locator('.navbar-brand')).toBeVisible();
 
-
+    */
     //Soft Assertions:-
-    await expect.soft(page).toHaveTitle('STORE11')
+    await expect.soft(page).toHaveTitle('STORE11') // This will fail but test will continue
 
-    await expect(page).toHaveURL('https://demoblaze.com/');
+    await expect.soft(page).toHaveURL('https://demoblaze.com/');
 
-    await expect(await page.locator('.navbar-brand')).toBeVisible();
+    await expect.soft(page.locator('.navbar-brand')).toBeVisible();
 
+     // Printing current URL and title in console
+      console.log('Current URL:', page.url());
+      console.log('Page Title:', await page.title());
+
+       
 
     page.close();
 
