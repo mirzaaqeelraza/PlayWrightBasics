@@ -3,7 +3,7 @@ const{test, expect} = require('@playwright/test')
 test('Hidden Drop', async({page})=>{
 
 
-page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
 
 
    await page.locator('//input[@placeholder="Username"]').fill("Admin");
